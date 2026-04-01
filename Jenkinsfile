@@ -4,13 +4,10 @@ pipeline {
     tools{
         jdk 'JDK21'
         maven 'mvn3'
-        // dependencyCheck 'DP'
     }
 
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
-        //JAVA_HOME = '/usr/lib/jvm/java-21-openjdk-amd64'
-        //PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
 
     stages {
@@ -37,11 +34,7 @@ pipeline {
                 '''
             }
         }
-        //stage('Dependency Check') {
-            //steps {
-                //dependencyCheck additionalArguments: '--scan . --format XML', odcInstallation: 'DP'
-            //}
-        //}
+      
         stage('Build Application') {
             steps {
                 sh '''
